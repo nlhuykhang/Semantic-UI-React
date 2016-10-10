@@ -4,7 +4,7 @@ import React, { Children, cloneElement, PropTypes } from 'react'
 
 import {
   AutoControlledComponent as Component,
-  createShorthand,
+  createShorthandItem,
   customPropTypes,
   getElementType,
   getUnhandledProps,
@@ -1020,7 +1020,7 @@ export default class Dropdown extends Component {
 
     return (
       <DropdownMenu className={menuClasses}>
-        {createShorthand(DropdownHeader, val => ({ content: val }), header)}
+        {createShorthandItem(DropdownHeader, val => ({ content: val }), header)}
         {this.renderOptions()}
       </DropdownMenu>
     )
