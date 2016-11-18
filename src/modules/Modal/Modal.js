@@ -6,6 +6,7 @@ import ModalHeader from './ModalHeader'
 import ModalContent from './ModalContent'
 import ModalActions from './ModalActions'
 import ModalDescription from './ModalDescription'
+import Icon from '../../elements/Icon'
 import Portal from '../../addons/Portal'
 
 import {
@@ -44,6 +45,12 @@ class Modal extends Component {
 
     /** Additional classes. */
     className: PropTypes.string,
+
+    /** Icon */
+    closeIcon: PropTypes.oneOfType([
+      PropTypes.node,
+      PropTypes.object,
+    ]),
 
     /** A modal can reduce its complexity */
     basic: PropTypes.bool,
@@ -172,7 +179,7 @@ class Modal extends Component {
   }
 
   render() {
-    const { basic, children, className, dimmer, mountNode, open, size } = this.props
+    const { basic, children, className, closeIcon, dimmer, mountNode, open, size } = this.props
 
     // Short circuit when server side rendering
     if (!isBrowser) return null
@@ -195,6 +202,7 @@ class Modal extends Component {
 
     const modalJSX = (
       <ElementType {...rest} className={classes} style={{ marginTop }} ref={c => (this._modalNode = c)}>
+        {Icon.create(closeIcon, { 'data-close': true })}
         {children}
       </ElementType>
     )
@@ -221,6 +229,7 @@ class Modal extends Component {
       <Portal
         closeOnRootNodeClick
         closeOnDocumentClick={false}
+        closeOnCloseClick={!_.isNil(closeIcon)}
         {...portalProps}
         className={dimmerClasses}
         mountNode={mountNode}
