@@ -229,7 +229,6 @@ class Modal extends Component {
       <Portal
         closeOnRootNodeClick
         closeOnDocumentClick={false}
-        closeOnCloseClick={!_.isNil(closeIcon)}
         {...portalProps}
         className={dimmerClasses}
         mountNode={mountNode}
