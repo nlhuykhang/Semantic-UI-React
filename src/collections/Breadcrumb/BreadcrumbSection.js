@@ -2,7 +2,7 @@ import cx from 'classnames'
 import React, { Component, PropTypes } from 'react'
 
 import {
-  createShorthandItemFactory,
+  createShorthandFactory,
   customPropTypes,
   getUnhandledProps,
   getElementType,
@@ -87,4 +87,4 @@ export default class BreadcrumbSection extends Component {
   }
 }
 
-BreadcrumbSection.create = createShorthandItemFactory(BreadcrumbSection, content => ({ content, link: true }))
+BreadcrumbSection.create = createShorthandFactory(BreadcrumbSection, content => ({ content, link: true }))

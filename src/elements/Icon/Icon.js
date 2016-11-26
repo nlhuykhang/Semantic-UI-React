@@ -2,7 +2,7 @@ import cx from 'classnames'
 import React, { PropTypes } from 'react'
 
 import {
-  createShorthandItemFactory,
+  createShorthandFactory,
   customPropTypes,
   getElementType,
   getUnhandledProps,
@@ -113,6 +113,6 @@ Icon.defaultProps = {
   as: 'i',
 }
 
-Icon.create = createShorthandItemFactory(Icon, value => ({ name: value }))
+Icon.create = createShorthandFactory(Icon, value => ({ name: value }))
 
 export default Icon
